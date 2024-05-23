@@ -1,0 +1,136 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local Window = Rayfield:CreateWindow({
+   Name = "voidx | Universal",
+   LoadingTitle = "Loading Script",
+   LoadingSubtitle = "by @rvd1",
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "XVZ"
+   },
+   Discord = {
+      Enabled = false,
+      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = true, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "voidx | Waiting for key",
+      Subtitle = "Key System",
+      Note = "@rvd1 on discord for the key",
+      FileName = "VXHZKEY", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"voidx_AbCdEfGhIjKlMnOpQr", "voidx_BcDeFgHiJkLmNoPqRs","voidx_CdEfGhIjKlMnOpQrSt", "voidx_DeFgHiJkLmNoPqRsTu","voidx_EfGhIjKlMnOpQrStUv", "voidx_FgHiJkLmNoPqRsTuVw","voidx_GhIjKlMnOpQrStUvWx", "voidx_HiJkLmNoPqRsTuVwXy","voidx_IjKlMnOpQrStUvWxYz", "voidx_JkLmNoPqRsTuVwXyZa","voidx_KlMnOpQrStUvWxYzAb", "voidx_LmNoPqRsTuVwXyZaBc","voidx_MnOpQrStUvWxYzAbCd", "voidx_NoPqRsTuVwXyZaBcDe","voidx_OpQrStUvWxYzAbCdEf", "voidx_PqRsTuVwXyZaBcDeFg","voidx_QrStUvWxYzAbCdEfGh", "voidx_RsTuVwXyZaBcDeFgHi","voidx_TuVwXyZaBcDeFgHiJk", "voidx_UvWxYzAbCdEfGhIjKl","voidx_VwXyZaBcDeFgHiJkLm", "voidx_WxYzAbCdEfGhIjKlMn","voidx_XyZaBcDeFgHiJkLmNo", "voidx_YzAbCdEfGhIjKlMnOp","voidx_ZaBcDeFgHiJkLmNoPq", "voidx_aBcDeFgHiJkLmNoPqR","voidx_bCdEfGhIjKlMnOpQrS", "voidx_cDeFgHiJkLmNoPqRsT","voidx_dEfGhIjKlMnOpQrStU", "voidx_eFgHiJkLmNoPqRsTuV","voidx_fGhIjKlMnOpQrStUvW", "voidx_gHiJkLmNoPqRsTuVwX","voidx_hIjKlMnOpQrStUvWxY", "voidx_iJkLmNoPqRsTuVwXyZ","voidx_jKlMnOpQrStUvWxYzA", "voidx_kLmNoPqRsTuVwXyZaB","voidx_lMnOpQrStUvWxYzAbC", "voidx_mNoPqRsTuVwXyZaBcD","voidx_nOpQrStUvWxYzAbCdE", "voidx_oPqRsTuVwXyZaBcDeF","voidx_pQrStUvWxYzAbCdEfG", "voidx_qRsTuVwXyZaBcDeFgH","voidx_rStUvWxYzAbCdEfGhI", "voidx_sTuVwXyZaBcDeFgHiJ","voidx_tUvWxYzAbCdEfGhIjK"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+
+local Tab = Window:CreateTab("Cheats", 0) -- Title, Image
+local Section = Tab:CreateSection("OP")
+local Button = Tab:CreateButton({
+    Name = "Flight | E to toggle",
+    Callback = function()
+        -- Load and execute the content of the ModuleScript
+        local ModuleScript = loadstring(game:HttpGet('https://pastebin.com/raw/KtLKcbxr', true))
+        if ModuleScript then
+            ModuleScript() -- Execute the loaded ModuleScript
+        else
+            print("Failed to load ModuleScript from URL.")
+        end
+    end,
+})
+
+local Toggle = Tab:CreateToggle({
+   Name = "Godmode | May cause lag on lower end devices",
+   CurrentValue = false,
+   Flag = "WLS", 
+   Callback = function(Value)
+       if Value then
+           while wait(0.1) do
+               if not Value then break end
+               game.Players.LocalPlayer.Character.Humanoid.Health = 99
+           end
+       end
+   end,
+})
+local Toggle = Tab:CreateToggle({
+   Name = "Regen | Looks more legit than godmode",
+   CurrentValue = false,
+   Flag = "WLS", 
+   Callback = function(Value)
+       if Value then
+           while wait(0.1) do
+               if not Value then break end
+               game.Players.LocalPlayer.Character.Humanoid.Health = game.Players.LocalPlayer.Character.Humanoid.Health + 0.3
+           end
+       end
+   end,
+})
+local Tab = Window:CreateTab("DH", 0) -- Title, Image
+local Section = Tab:CreateSection("Aim")
+local Button = Tab:CreateButton({
+   Name = "Anti-Lock | Ins to toggle",
+   Callback = function()
+   local Toggled = true
+
+local KeyCode = Enum.KeyCode.Insert -- use Enum.KeyCode instead of string
+local hip = 2.80
+local val = -10
+
+function AA()
+  local oldVelocity = game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity
+  game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(oldVelocity.X, val, oldVelocity.Z)
+  --game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(oldVelocity.X, oldVelocity.Y, oldVelocity.Z) -- this line is not needed as it overwrites the previous line
+  game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(oldVelocity.X, val, oldVelocity.Z)
+  game.Players.LocalPlayer.Character.Humanoid.HipHeight = hip
+end
+
+game:GetService('UserInputService').InputBegan:Connect(function(Key)
+  if Key.KeyCode == KeyCode and not game:GetService('UserInputService'):GetFocusedTextBox() then
+      if Toggled then
+          Toggled = false
+          game.Players.LocalPlayer.Character.Humanoid.HipHeight = hip
+          print("Enabled")
+      else
+          Toggled = true
+
+          while Toggled do
+              AA()
+              task.wait()
+              print("Anti - Set velocity")
+          end
+      end
+  end
+end)
+   end,
+})
+local Tab = Window:CreateTab("Server", 0) -- Title, Image
+local Section = Tab:CreateSection("Misc")
+local Lul -- Define Lul variable outside the functions to make it accessible to both
+
+local Input = Tab:CreateInput({
+    Name = "Ban/Kick Message",
+    PlaceholderText = "Input Message Here",
+    RemoveTextAfterFocusLost = false,
+    Callback = function(Text)
+        Lul = Text -- Assign the input value to Lul variable
+        print(Lul)
+    end,
+})
+
+local Button = Tab:CreateButton({
+    Name = "Txt kick",
+    Callback = function()
+        if Lul then -- Check if Lul is not nil before printing
+            game.Players.LocalPlayer:kick(Lul)
+        else
+            print("No input value available.")
+        end
+    end,
+})
+local Button = Tab:CreateButton({
+   Name = "Fake ban",
+   Callback = function()
+   game.Players.LocalPlayer:kick("Your account has been permanently banned from Roblox due to repeated violations of our community standards. This decision is final and irreversible. Reason: Exploits and Cheats. AC")
+   end,
+})
