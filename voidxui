@@ -66,6 +66,13 @@ local Toggle = Tab:CreateToggle({
        end
    end,
 })
+local wlkspd
+local Button = Tab:CreateButton({
+   Name = "Set Walkspeed",
+   Callback = function()
+   game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = wlkspd
+   end,
+})
 local Tab = Window:CreateTab("DH", 0) -- Title, Image
 local Section = Tab:CreateSection("Aim")
 local Button = Tab:CreateButton({
